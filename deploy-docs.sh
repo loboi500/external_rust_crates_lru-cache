@@ -1,20 +1,3 @@
-#!/bin/bash
-
-set -o errexit -o nounset
-
-rev=$(git rev-parse --short HEAD)
-
-cd target/doc
-
-git init
-git config user.email 'FlashCat@users.noreply.github.com'
-git config user.name 'FlashCat'
-git remote add upstream "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-git fetch upstream gh-pages
-git reset upstream/gh-pages
-
-touch .
-
-git add -A .
-git commit -m "rebuild pages at ${rev}"
-git push -q upstream HEAD:gh-pages
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b66111b124c1c7e59cb84cf110d98b5cb783bd35a676e970d9b3035e55f7dfd
+size 424
